@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import com.example.ecommerce.model.Client;
 import com.example.ecommerce.repository.ClientRepository;
 
-import java.io.IOException;
 import java.util.List;
 @RestController
 @RequestMapping("/clients")
@@ -15,15 +14,15 @@ public class ClientController {
 	@Autowired
     private ClientRepository clientRepository;
 
-    /*@GetMapping
+    @GetMapping
     public List<Client> getAllClients() {
         return clientRepository.findAll();
-    }*/
+    }
 
-   /* @PostMapping
+    @PostMapping
     public Client createUtilisateur(@RequestBody Client client) {
         return clientRepository.save(client);
-    }*/
+    }
     
     @GetMapping("/")
 	public List<Client> showClients(){
@@ -31,7 +30,7 @@ public class ClientController {
 	}
 	
 	@PostMapping("/addClient")
-	public Client addClient(@RequestBody Client client) throws IOException{
+	public Client addClient(Client client) throws IOException{
 		return clientService.addClient(client);
 	}
 	@GetMapping("/getClient/{id}")
